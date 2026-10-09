@@ -1,0 +1,36 @@
+package com.jeremykenedy.twilighthearth;
+
+import android.service.dreams.DreamService;
+
+public final class HearthDreamService extends DreamService {
+    private HearthSceneView scene;
+
+    @Override
+    public void onAttachedToWindow() {
+        super.onAttachedToWindow();
+        setInteractive(false);
+        setFullscreen(true);
+        setScreenBright(true);
+        scene = new HearthSceneView(this);
+        setContentView(scene);
+    }
+
+    @Override
+    public void onDreamingStarted() {
+        super.onDreamingStarted();
+        if (scene != null) scene.start();
+    }
+
+    @Override
+    public void onDreamingStopped() {
+        if (scene != null) scene.stop();
+        super.onDreamingStopped();
+    }
+
+    @Override
+    public void onDetachedFromWindow() {
+        if (scene != null) scene.stop();
+        scene = null;
+        super.onDetachedFromWindow();
+    }
+}

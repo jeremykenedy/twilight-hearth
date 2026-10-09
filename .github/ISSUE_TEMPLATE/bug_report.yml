@@ -1,0 +1,29 @@
+name: Bug report
+description: Report a reproducible issue with Twilight Hearth.
+title: "Bug: "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: Do not include account details, network identifiers, or private device data.
+  - type: input
+    id: release
+    attributes:
+      label: App release
+      placeholder: 1.0.0
+    validations:
+      required: true
+  - type: input
+    id: device
+    attributes:
+      label: Device and Android version
+      placeholder: Android TV emulator, API 31
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps and observed result
+      description: Explain what happened and what you expected.
+    validations:
+      required: true
