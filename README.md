@@ -44,22 +44,23 @@ The app requests no network permission and makes no network requests. It include
 
 ## Features
 
-The source candidate for version 1.1.0 replaces the original painted fire. Its native verification is in progress; the latest published release still contains the earlier renderer.
+Version 1.1.0 replaces the original painted fire with recorded wood fire. Native emulator and physical Fire TV checks are recorded in [device verification](docs/VERIFICATION.md).
 
-- Licensed 1080p recorded wood fire, separate rising embers and reflected room light.
-- Three photographed material surrounds: traditional brick, natural stone and modern dark, with normal-mapped surfaces.
-- Independent recorded-flame exposure, ember count, playback speed and room lighting, plus very slow architectural drift.
-- Per-setting random values and an option to randomize all settings whenever the screensaver starts.
-- Remote-friendly settings and an app-owned provider schema for host applications.
-- A native Android DreamService with an in-app animation preview.
+| Feature | What it does | Guide |
+| --- | --- | --- |
+| Recorded wood fire | Offline 1080p flames with separate embers and reflected light | [Architecture](docs/ARCHITECTURE.md) |
+| Three surrounds | Photographed brick, stone and modern dark slate | [Configuration](docs/CONFIGURATION.md) |
+| Independent controls | Flame exposure, playback speed, embers and room lighting | [Configuration](docs/CONFIGURATION.md) |
+| Quiet drift | Very slow movement across the whole fireplace | [Architecture](docs/ARCHITECTURE.md) |
+| Native TV integration | Remote settings, offline credits, Preview and DreamService | [Integration](docs/INTEGRATION.md) |
 
 ## Requirements
 
 - Android 6.0 (API 23) or later.
-- A device that exposes Android's DreamService screensaver settings.
+- OpenGL ES 2 graphics, H.264 decoding and a device that exposes Android's DreamService screensaver settings.
 - Android SDK platform 36 and build-tools 36.0.0 to build from source.
 
-Native support has been tested on the Android TV emulator listed in [device verification](docs/VERIFICATION.md). Fire TV and Google TV hardware have not been tested for this release.
+Native support has been tested on the Android TV emulator listed in [device verification](docs/VERIFICATION.md). The exact final APK also passed bounded physical Fire TV AFTDEC012E/API30 checks. Google TV hardware remains unverified.
 
 ## Installation
 
@@ -84,13 +85,13 @@ screensaver --set=twilight-hearth
 firetv-screensavers --uninstall=twilight-hearth --force
 ```
 
-Run the install command again to update the same package with its existing signer. It installs the latest published release, which remains version 1.0.0 until the replacement passes its physical-device gate. Toolkit also manages supported launcher choices, sleep/screensaver timers and settings safeguards. Visual options live in this app; Fire TV UI discovers installed dreams and provides its documented settings/preview integration. See the [developer integration contract](docs/INTEGRATION.md) for exact identifiers and candidate limits.
+Run the install command again to update the same package with its existing signer. It installs the latest published release. Toolkit also manages supported launcher choices, sleep/screensaver timers and settings safeguards. Visual options live in this app; Fire TV UI discovers installed dreams and provides its documented settings/preview integration. See the [developer integration contract](docs/INTEGRATION.md) for exact identifiers and candidate limits.
 
 ## Screenshots
 
-<table><tr><td><img src="art/screenshots/brick-natural.png" alt="Recorded wood fire in a photographed brick and timber surround"></td><td><img src="art/screenshots/stone-natural.png" alt="Natural stone and timber with a larger centered firebox"></td><td><img src="art/screenshots/modern-natural.png" alt="Modern dark slate surround with a clean steel reveal"></td></tr><tr><td><img src="art/screenshots/brick-low.png" alt="Low recorded-flame exposure without resizing the logs"></td><td><img src="art/screenshots/brick-high.png" alt="High recorded-flame exposure with unchanged frame geometry"></td><td><img src="art/screenshots/settings.png" alt="Remote settings preserving every original option"></td></tr><tr><td><img src="art/screenshots/credits.png" alt="Offline source credits reached through the remote"></td><td><img src="art/screenshots/credits-scrolled.png" alt="Full application license scrolled with the remote"></td><td><img src="art/screenshots/dream-brick.png" alt="Actual DreamService test activation rendering real fire"></td></tr></table>
+<table><tr><td><img src="art/screenshots/fire-tv-modern-bright.png" alt="Actual Fire TV modern slate fireplace with bright recorded flames" width="100%"></td><td><img src="art/screenshots/fire-tv-stone-dim-dream.png" alt="Actual bound Fire TV DreamService showing a stone surround with dim room lighting" width="100%"></td><td><img src="art/screenshots/brick-natural.png" alt="Native emulator brick and timber fireplace with recorded wood fire" width="100%"></td></tr></table>
 
-These actual 1920x1080 captures came from the version 1.1.0 source candidate on the shared Android 14/API 34 Google TV emulator 5580. The default preview was captured after more than 40 seconds of playback. See [device verification](docs/VERIFICATION.md) for the tested APK hash, methods and limits.
+The first two 1920x1080 captures are from the exact signed 1.1.0 APK on a physical Fire TV AFTDEC012E/API30. The brick capture is from the same renderer on the Google TV API34 emulator. See the [native gallery](docs/GALLERY.md) and [device verification](docs/VERIFICATION.md) for current settings, credits, control checks, artifact hashes and limits.
 
 ## Building and testing
 
@@ -112,6 +113,7 @@ The app uses the Android SDK and JDK without third-party runtime dependencies. S
 - [Architecture](docs/ARCHITECTURE.md)
 - [Testing and coverage](docs/TESTING.md)
 - [Device verification](docs/VERIFICATION.md)
+- [Native gallery](docs/GALLERY.md)
 - [Quality correction and verification limits](docs/QUALITY-AUDIT.md)
 - [CI](docs/CI.md)
 - [Troubleshooting](docs/TROUBLESHOOTING.md)
@@ -124,6 +126,8 @@ The app uses the Android SDK and JDK without third-party runtime dependencies. S
 
 ## Release notes
 
+- [Changelog](CHANGELOG.md)
+- [Version 1.1.0](docs/releases/v1.1.0.md)
 - [Version 1.0.0](docs/releases/v1.0.0.md)
 
 ## License
