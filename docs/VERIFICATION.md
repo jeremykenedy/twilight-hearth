@@ -1,33 +1,57 @@
 # Device verification
 
-## Tested device
+## Current source candidate
 
-| Device | Type | Resolution | Test |
-| --- | --- | --- | --- |
-| Android TV emulator 5570 (`sdk_google_atv64_arm64`) | Emulator | 1920x1080, density 320 dpi, Android 12 (API 31) | APK install/update, launcher settings, settings-provider schema and values, D-pad option selection, animated preview, DreamService manifest discovery, and screenshot capture. |
-| Fire TV | Not tested | Not available | A physical Fire TV owner is requested to test installation, screensaver selection/start/exit, settings navigation, and update behavior, then report the model, Fire OS version, and results. |
-| Google TV | Not tested | Not available | A physical Google TV owner is requested to test installation, screensaver selection/start/exit, settings navigation, and update behavior, then report the model, Android version, and results. |
+On October 16, 2026, the real-fire replacement was tested on shared Google TV
+emulator `emulator-5580`, Android 14/API 34, with actual 1920x1080 captures.
+The native test APK SHA-256 was
+`89bf3132418d506c6307c9ee0a89b56c8dba4ccee387138d76ff07a99bb8d9ea`
+(26,814,147 bytes). The final source candidate refreshes only the embedded
+preview JPEG from that run; its SHA-256 is
+`dd39810f8bf2a67af7f133554897741323d9a14d606b3fc1a441285646b440f5`
+(27,207,363 bytes). Both use the existing production signing certificate.
 
-The emulator reports Android TV system images through the Android SDK. Use `adb -s emulator-5570 shell getprop ro.build.version.release` and `getprop ro.build.version.sdk` to identify the installed image version. This release was not tested on physical Fire TV, Android TV, or Google TV hardware. Native 4K composition, long-duration thermal behavior, panel power use, and vendor-specific idle activation remain unverified.
+The native run verified:
 
-## Screenshots
+- Installation and real 1080p decoded-fire playback in PreviewActivity.
+- All three surrounds and low/high recorded-flame exposure, with unchanged logs and frame geometry.
+- Settings reached through the launcher activity and the existing settings provider.
+- D-pad navigation to Credits and licenses, Select opening the native dialog,
+  Up/Down scrolling through source attribution into the full Apache license,
+  and Back closing it.
+- Actual DreamService activation through Android's testDream binder method and
+  Back exiting the dream. This did not change the selected system dream.
+- No FATAL EXCEPTION, MediaPlayer error or GL error in the inspected native log.
 
-[`screenshots/hearth-preview.png`](screenshots/hearth-preview.png) is a 1920x1080 ADB capture of the running `PreviewActivity` on emulator 5570. It was captured after the animation had been running for at least 40 seconds, with the default traditional-brick surround, natural intensity, a handful of embers, natural movement, and warm room lighting. It contains no menus, captions, or watermarks.
+The default brick capture was taken after more than 40 seconds of playback.
+The 33.369 second native recording contains 1,080 compositor frames and spans
+the 29.25 second recorded-fire loop. These capture counts are not a renderer
+frame-rate measurement. Physical-device performance has not been established.
 
-The Android DreamService preview image is derived from this same original procedural scene and bundled at `res/drawable-nodpi/screensaver_preview.jpg`.
+Current captures live in `art/screenshots/`. The embedded Android screensaver
+preview is the same current brick capture encoded as JPEG, without captions,
+menus or watermarks. Earlier procedural captures under `docs/screenshots/`
+are historical and are no longer used in the README or app preview.
 
-## Checks performed
+## Restoration
 
-- Installed and updated the signed local APK through `install.py` using only serial `emulator-5570`.
-- Confirmed the launcher resolves to `SettingsActivity` and the DreamService component is discoverable in Android TV's screensaver picker.
-- Queried the settings schema and current values through the exported provider.
-- Captured and visually inspected the running 1920x1080 animated preview after settling.
-- Confirmed the installed manifest declares no network permissions.
+The selected system dream remained Reel Atrium and `screensaver_enabled`
+remained 1, confirmed by readback. Twilight Hearth's new-install defaults were
+restored, both tested fireplace apps were stopped, and Home was restored before
+the emulator was handed to the next worker. No physical TV commands were issued
+as part of this candidate's checks.
 
-## Device test reports requested
+## Historical release
 
-Physical Fire TV and Google TV device tests are still needed. If you can test either platform, please report the device model, OS version, display resolution, install method, screensaver activation and exit behavior, D-pad settings behavior, and any visible rendering or performance issue. Include whether the result came from a physical device or emulator. Do not include account identifiers or other private device data.
+Version 1.0.0 used the original Canvas renderer. Its Android TV API 31 emulator
+5570 checks covered installation, launcher settings, provider reads and preview
+captures. Those results do not verify this replacement renderer or a physical
+Fire TV.
 
-## Limits
+## Remaining gates
 
-The emulator verifies Android app behavior, not automatic idle startup through Android TV's system controls, Fire OS rollback behavior, physical-panel performance, or native 4K composition. The app's preview and service declaration were verified, but system-triggered DreamService activation was not established. No system screensaver choice or timer was left changed after testing.
+Fire TV hardware installation, actual system idle activation, sleep/wake,
+remote Menu/Home paths, sustained playback, thermal behavior and native 4K
+composition remain unverified for this candidate. A direct PreviewActivity or
+testDream launch does not establish automatic idle activation. The replacement
+is not released until the required device and publication gates finish.

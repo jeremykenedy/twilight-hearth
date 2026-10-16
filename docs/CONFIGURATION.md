@@ -5,13 +5,15 @@ Open Twilight Hearth from the TV launcher and use the remote to change a choice.
 | Setting | Choices | Default | Effect |
 | --- | --- | --- | --- |
 | Hearth surround | Traditional brick, natural stone, modern dark, random | Traditional brick | Changes the wall and fireplace surround. |
-| Flame intensity | Low, natural, high, random | Natural | Changes flame height and the number of flame shapes. |
+| Flame intensity | Low, natural, high, random | Natural | Adjusts exposure of the recorded flames and their reflected light, without resizing the logs. |
 | Floating embers | A few, a handful, many, random | A handful | Changes the number of rising embers. |
-| Flame movement | Slow, natural, fast, random | Natural | Changes the rate of flame and ember animation. |
-| Room lighting | Dim, warm, bright, random | Warm | Changes the ambient glow. |
+| Flame movement | Slow, natural, fast, random | Natural | Changes recorded-fire playback and ember movement to 0.65x, 1x or 1.55x. |
+| Room lighting | Dim, warm, bright, random | Warm | Changes the room material brightness and reflected glow. |
 | Randomize all | On, off | Off | Chooses a fresh supported value for every setting when the screensaver starts. |
 
 Per-setting random choices affect that setting each time the screensaver starts. The random choices are selected at startup and remain fixed until the next activation.
+
+The bottom of the settings screen opens offline credits and full licenses. These are bundled with the app and need no browser or network connection.
 
 ## Host settings interface
 

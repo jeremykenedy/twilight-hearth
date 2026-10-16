@@ -1,24 +1,23 @@
 <p align="center">
-    <picture>
-        <source media="(prefers-color-scheme: dark)" srcset="art/banner-dark.svg">
-        <source media="(prefers-color-scheme: light)" srcset="art/banner-light.svg">
-        <img src="art/banner-light.svg" alt="Twilight Hearth, an animated fireplace screensaver with no ads, analytics, or tracking" width="800">
-    </picture>
+  <a href="https://github.com/jeremykenedy/twilight-hearth#gh-light-mode-only"><picture><source media="(max-width: 600px) and (prefers-reduced-motion: reduce)" srcset="art/banner-mobile-still-light.bb5d13fe765e.svg"><source media="(prefers-reduced-motion: reduce)" srcset="art/banner-still-light.348ea3cac110.svg"><source media="(max-width: 600px)" srcset="art/banner-mobile-light.c1c623d6d0e4.svg"><img src="art/banner-light.f0596f34d32d.svg#gh-light-mode-only" alt="Twilight Hearth" width="800"></picture></a>
+  <a href="https://github.com/jeremykenedy/twilight-hearth#gh-dark-mode-only"><picture><source media="(max-width: 600px) and (prefers-reduced-motion: reduce)" srcset="art/banner-mobile-still-dark.60eca254883c.svg"><source media="(prefers-reduced-motion: reduce)" srcset="art/banner-still-dark.e6398aeb0d35.svg"><source media="(max-width: 600px)" srcset="art/banner-mobile-dark.5d185b657645.svg"><img src="art/banner-dark.60e6f04a9f59.svg#gh-dark-mode-only" alt="Twilight Hearth" width="800"></picture></a>
 </p>
 
-<p align="center">A continuously animated fireplace screensaver for Fire TV, Android TV, and Google TV.</p>
+<p align="center">Real wood fire and quiet architectural surrounds for Fire TV, Android TV, and Google TV.</p>
 
 <p align="center">
-    <a href="https://github.com/jeremykenedy/twilight-hearth/releases"><img src="https://img.shields.io/github/v/release/jeremykenedy/twilight-hearth?label=latest%20release" alt="Latest release"></a>
     <a href="https://github.com/jeremykenedy/twilight-hearth/releases"><img src="https://img.shields.io/github/downloads/jeremykenedy/twilight-hearth/total" alt="GitHub release downloads"></a>
+    <a href="https://github.com/jeremykenedy/twilight-hearth/releases"><img src="https://img.shields.io/github/v/release/jeremykenedy/twilight-hearth?label=latest%20release" alt="Latest release"></a>
     <a href="https://github.com/jeremykenedy/twilight-hearth/actions/workflows/ci.yml"><img src="https://github.com/jeremykenedy/twilight-hearth/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
     <a href="https://github.com/jeremykenedy/twilight-hearth/actions/workflows/style.yml"><img src="https://github.com/jeremykenedy/twilight-hearth/actions/workflows/style.yml/badge.svg" alt="Code style"></a>
     <a href="https://github.com/jeremykenedy/twilight-hearth/actions/workflows/docs.yml"><img src="https://github.com/jeremykenedy/twilight-hearth/actions/workflows/docs.yml/badge.svg" alt="Documentation"></a>
     <a href="https://github.com/jeremykenedy/twilight-hearth/actions/workflows/security.yml"><img src="https://github.com/jeremykenedy/twilight-hearth/actions/workflows/security.yml/badge.svg" alt="Security checks"></a>
     <a href="LICENSE"><img src="https://img.shields.io/badge/License-Apache--2.0-blue.svg" alt="Apache-2.0 license"></a>
+</p>
+
+<p align="center">
     <a href="https://github.com/jeremykenedy"><img src="https://img.shields.io/github/followers/jeremykenedy?label=Follow&style=social" alt="Follow Jeremy Kenedy on GitHub"></a>
     <a href="https://github.com/jeremykenedy/twilight-hearth" title="Open the repository and click Star"><img src="https://img.shields.io/badge/Star-this%20repo-yellow?logo=github&style=social" alt="Star this repo"></a>
-    <a href="https://github.com/jeremykenedy/twilight-hearth/stargazers"><img src="https://img.shields.io/github/stars/jeremykenedy/twilight-hearth?style=social" alt="Star Twilight Hearth on GitHub"></a>
     <a href="https://github.com/sponsors/jeremykenedy"><img src="https://img.shields.io/badge/Sponsor-jeremykenedy-EA4AAA?logo=githubsponsors&logoColor=white" alt="Sponsor Jeremy Kenedy"></a>
 </p>
 
@@ -44,9 +43,11 @@ The app requests no network permission and makes no network requests. It include
 
 ## Features
 
-- Continuously animated flames with shifting tongues, glowing logs, rising embers, and room light that pulses with the fire.
-- Three original room surrounds: traditional brick, natural stone, and modern dark.
-- Independent choices for flame intensity, ember count, movement speed, and room lighting.
+The source candidate for version 1.1.0 replaces the original painted fire. Its native verification is in progress; the latest published release still contains the earlier renderer.
+
+- Licensed 1080p recorded wood fire, separate rising embers and reflected room light.
+- Three photographed material surrounds: traditional brick, natural stone and modern dark, with normal-mapped surfaces.
+- Independent recorded-flame exposure, ember count, playback speed and room lighting, plus very slow architectural drift.
 - Per-setting random values and an option to randomize all settings whenever the screensaver starts.
 - Remote-friendly settings and an app-owned provider schema for host applications.
 - A native Android DreamService with an in-app animation preview.
@@ -71,15 +72,9 @@ Open Twilight Hearth from the TV launcher and use the remote to adjust settings.
 
 ## Screenshots
 
-<p align="center">
-    <img src="docs/screenshots/hearth-preview.png" alt="Animated flames, glowing logs, and rising embers inside a traditional brick fireplace on an Android TV emulator" width="75%">
-</p>
+<table><tr><td><img src="art/screenshots/brick-natural.png" alt="Recorded wood fire in a photographed brick and timber surround"></td><td><img src="art/screenshots/stone-natural.png" alt="Natural stone and timber with a larger centered firebox"></td><td><img src="art/screenshots/modern-natural.png" alt="Modern dark slate surround with a clean steel reveal"></td></tr><tr><td><img src="art/screenshots/brick-low.png" alt="Low recorded-flame exposure without resizing the logs"></td><td><img src="art/screenshots/brick-high.png" alt="High recorded-flame exposure with unchanged frame geometry"></td><td><img src="art/screenshots/settings.png" alt="Remote settings preserving every original option"></td></tr><tr><td><img src="art/screenshots/credits.png" alt="Offline source credits reached through the remote"></td><td><img src="art/screenshots/credits-scrolled.png" alt="Full application license scrolled with the remote"></td><td><img src="art/screenshots/dream-brick.png" alt="Actual DreamService test activation rendering real fire"></td></tr></table>
 
-<p align="center">
-    <img src="docs/screenshots/settings-android-tv.png" alt="Remote-friendly Twilight Hearth settings on an Android TV emulator" width="75%">
-</p>
-
-This 1920x1080 screenshot was captured from the running app on Android TV emulator 5570 after the scene settled. Its configuration and capture method are recorded in [device verification](docs/VERIFICATION.md).
+These actual 1920x1080 captures came from the version 1.1.0 source candidate on the shared Android 14/API 34 Google TV emulator 5580. The default preview was captured after more than 40 seconds of playback. See [device verification](docs/VERIFICATION.md) for the tested APK hash, methods and limits.
 
 ## Building and testing
 
@@ -100,6 +95,7 @@ The app uses the Android SDK and JDK without third-party runtime dependencies. S
 - [Architecture](docs/ARCHITECTURE.md)
 - [Testing and coverage](docs/TESTING.md)
 - [Device verification](docs/VERIFICATION.md)
+- [Quality correction and verification limits](docs/QUALITY-AUDIT.md)
 - [CI](docs/CI.md)
 - [Troubleshooting](docs/TROUBLESHOOTING.md)
 - [Release process](docs/RELEASING.md)
@@ -115,4 +111,4 @@ The app uses the Android SDK and JDK without third-party runtime dependencies. S
 
 ## License
 
-Twilight Hearth is licensed under the [Apache License, Version 2.0](LICENSE). See [NOTICE](NOTICE) for project notices.
+Twilight Hearth is licensed under the [Apache License, Version 2.0](LICENSE). Recorded fire is CC BY 3.0 and photographed materials are CC0. See [NOTICE](NOTICE), [media provenance](assets/media.json) and [material provenance](assets/materials/provenance.json) for attribution and exact hashes. Full application licenses and credits are also available offline in settings.
