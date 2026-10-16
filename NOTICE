@@ -1,4 +1,16 @@
 Twilight Hearth
 Copyright 2026 Jeremy Kenedy
+Application source code and original artwork are licensed under Apache License 2.0.
 
-This project contains original source code, procedural fireplace animation, and original vector artwork. No third-party visual assets are included.
+Bundled wood footage: Fantastic-fireplace-fire-chimney-hearth- background -
+texture - motion graphics - free video library.webm by free video library (2018).
+Creative Commons Attribution 3.0 Unported (CC BY 3.0).
+https://commons.wikimedia.org/wiki/File:Fantastic-fireplace-fire-chimney-hearth-_background_-_texture_-_motion_graphics_-_free_video_library.webm
+https://creativecommons.org/licenses/by/3.0/
+Adapted by slight desaturation, H.264 transcoding and loop-boundary blending.
+The footage author does not endorse this application.
+
+Photographed material diffuse and normal maps from Poly Haven, CC0-1.0:
+red_brick, marble_01, slate_floor and wood_floor.
+https://polyhaven.com/license
+Exact source links and hashes: assets/materials/provenance.json

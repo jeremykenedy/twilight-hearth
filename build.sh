@@ -8,8 +8,8 @@ ANDROID_JAR="$SDK/platforms/android-36/android.jar"
 OUT="$ROOT/build"
 KEYSTORE="${TWILIGHT_HEARTH_KEYSTORE:-$HOME/.android/twilight-hearth.jks}"
 KEYPASS="${TWILIGHT_HEARTH_KEYPASS:-$HOME/.android/twilight-hearth.pass}"
-VERSION_NAME="${VERSION_NAME:-1.0.0}"
-VERSION_CODE="${VERSION_CODE:-1}"
+VERSION_NAME="${VERSION_NAME:-1.1.0}"
+VERSION_CODE="${VERSION_CODE:-2}"
 
 for tool in javac keytool openssl zip; do
   command -v "$tool" >/dev/null || { echo "Missing required tool: $tool" >&2; exit 1; }
@@ -18,7 +18,7 @@ done
   echo "Install Android SDK platform 36 and build-tools 36.0.0." >&2; exit 1;
 }
 mkdir -p "$OUT" "$(dirname "$KEYSTORE")"
-rm -rf "$OUT/classes" "$OUT/dex" "$OUT/generated"
+rm -rf "$OUT/classes" "$OUT/dex" "$OUT/generated" "$OUT/assets"
 mkdir -p "$OUT/classes" "$OUT/dex"
 
 if [[ ! -f "$KEYSTORE" ]]; then
@@ -30,13 +30,16 @@ if [[ ! -f "$KEYSTORE" ]]; then
 fi
 [[ -s "$KEYPASS" ]] || { echo "Restore the signing-key password file." >&2; exit 1; }
 
+mkdir -p "$OUT/assets"
+cp -R "$ROOT/assets/." "$OUT/assets/"
+cp "$ROOT/NOTICE" "$ROOT/LICENSE" "$OUT/assets/"
 "$TOOLS/aapt2" compile --dir "$ROOT/res" -o "$OUT/res.zip"
 "$TOOLS/aapt2" link -o "$OUT/unsigned.apk" -I "$ANDROID_JAR" \
   --manifest "$ROOT/AndroidManifest.xml" --min-sdk-version 23 --target-sdk-version 36 \
   --version-code "$VERSION_CODE" --version-name "$VERSION_NAME" \
-  --java "$OUT/generated" "$OUT/res.zip"
+  -A "$OUT/assets" --java "$OUT/generated" "$OUT/res.zip"
 find "$ROOT/src" "$OUT/generated" -name '*.java' > "$OUT/sources.txt"
-javac -nowarn -Xlint:-options -source 8 -target 8 -bootclasspath "$ANDROID_JAR" \
+javac -nowarn --release 8 -classpath "$ANDROID_JAR" \
   -d "$OUT/classes" @"$OUT/sources.txt"
 find "$OUT/classes" -name '*.class' > "$OUT/classes.txt"
 "$TOOLS/d8" --release --lib "$ANDROID_JAR" --min-api 23 --output "$OUT/dex" @"$OUT/classes.txt"
