@@ -17,7 +17,7 @@ The existing production key remains in use.
 
 ## Replacement candidate
 
-The private candidate decodes licensed 1920x1080 real wood fire into a native
+The replacement decodes licensed 1920x1080 real wood fire into a native
 OpenGL surface. Photographed brick, marble stone, dark slate and timber use
 normal maps and restrained reflected firelight. The firebox is larger and
 centered, and the full frame moves very slowly. Embers are separate small
@@ -28,7 +28,7 @@ All existing setting keys and accepted choices remain valid: `hearth_style`,
 `intensity`, `embers`, `motion`, `ambience` and `randomize_all`. Intensity adjusts
 recorded flame exposure and reflected light. It does not resize logs or claim
 independent physical combustion control. Movement controls actual video and
-ember playback rate. The native candidate now has current 1920x1080 captures of all three materials, low and high flame exposure, remote settings and offline credits. An actual DreamService binder test rendered the scene and exited with Back without changing the selected dream. A 33.369 second native recording spans the 29.25 second fire loop. Physical-device idle, sleep/wake and sustained performance remain pending. The bundled preview image is refreshed from the current native brick capture.
+ember playback rate. The native candidate now has current 1920x1080 captures of all three materials, low and high flame exposure, remote settings and offline credits. An actual DreamService binder test rendered the scene and exited with Back without changing the selected dream. A 33.369 second native recording spans the 29.25 second fire loop. The final signed APK passed bounded physical Fire TV Preview and actual DreamService/Back checks with exact preference/system restoration and normal moving playback review. Automatic idle startup, sleep/wake and sustained performance remain unverified. The bundled preview image is refreshed from the current native brick capture.
 
 ## Coverage boundary
 

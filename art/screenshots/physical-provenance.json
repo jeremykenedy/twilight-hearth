@@ -1,0 +1,27 @@
+{
+  "date": "2026-10-16",
+  "platform": "Physical Fire TV AFTDEC012E, API30",
+  "apkSha256": "dd39810f8bf2a67af7f133554897741323d9a14d606b3fc1a441285646b440f5",
+  "bytes": 27207363,
+  "version": "1.1.0",
+  "versionCode": 2,
+  "images": {
+    "fire-tv-modern-bright.png": "30c076080ae64f3152def1c6531408a3cea2662e28a22c5b9c6014f312981768",
+    "fire-tv-stone-dim-dream.png": "9e2f8494fe28c826a596dab5ccca9754f085e3542feac0e0ba5516971753776c"
+  },
+  "captureSize": "1920x1080",
+  "method": [
+    "Actual remote Settings Preview then40sec settle and20sec requested screenrecord; actual movie19.4756sec viewed0\u219219",
+    "Actual nonpersistent bound HearthDreamService stone/dim,45secsettle,Back detached",
+    "Same-signer update preserved six app preferences; six prefs/five system keys/prior Asleeptrue restored exactly"
+  ],
+  "presentationSample": {
+    "presented_buffers": 126,
+    "fps": 49.01870907068918,
+    "scope": "composite SurfaceView presents, not source video fps"
+  },
+  "limits": [
+    "SurfaceView presentation buffers are compositor observations, not source video FPS",
+    "Automatic idle activation, native4K composition and sustained thermal/power behavior unverified"
+  ]
+}
