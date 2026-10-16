@@ -30,6 +30,7 @@
 - [Requirements](#requirements)
 - [Installation](#installation)
 - [Configuration](#configuration)
+- [Fire TV Toolkit](#fire-tv-toolkit)
 - [Screenshots](#screenshots)
 - [Building and testing](#building-and-testing)
 - [Documentation](#documentation)
@@ -70,6 +71,21 @@ To remove the app, run `python3 install.py --serial DEVICE --uninstall --yes --f
 
 Open Twilight Hearth from the TV launcher and use the remote to adjust settings. Changes take effect the next time the screensaver starts. See [configuration](docs/CONFIGURATION.md) for supported values and the settings-provider interface.
 
+## Fire TV Toolkit
+
+[Fire TV Toolkit](https://github.com/jeremykenedy/fire-tv-toolkit) provides guided installation and TV setup:
+
+```bash
+git clone https://github.com/jeremykenedy/fire-tv-toolkit.git
+cd fire-tv-toolkit
+node setup.js
+firetv-screensavers --install=twilight-hearth
+screensaver --set=twilight-hearth
+firetv-screensavers --uninstall=twilight-hearth --force
+```
+
+Run the install command again to update the same package with its existing signer. It installs the latest published release, which remains version 1.0.0 until the replacement passes its physical-device gate. Toolkit also manages supported launcher choices, sleep/screensaver timers and settings safeguards. Visual options live in this app; Fire TV UI discovers installed dreams and provides its documented settings/preview integration. See the [developer integration contract](docs/INTEGRATION.md) for exact identifiers and candidate limits.
+
 ## Screenshots
 
 <table><tr><td><img src="art/screenshots/brick-natural.png" alt="Recorded wood fire in a photographed brick and timber surround"></td><td><img src="art/screenshots/stone-natural.png" alt="Natural stone and timber with a larger centered firebox"></td><td><img src="art/screenshots/modern-natural.png" alt="Modern dark slate surround with a clean steel reveal"></td></tr><tr><td><img src="art/screenshots/brick-low.png" alt="Low recorded-flame exposure without resizing the logs"></td><td><img src="art/screenshots/brick-high.png" alt="High recorded-flame exposure with unchanged frame geometry"></td><td><img src="art/screenshots/settings.png" alt="Remote settings preserving every original option"></td></tr><tr><td><img src="art/screenshots/credits.png" alt="Offline source credits reached through the remote"></td><td><img src="art/screenshots/credits-scrolled.png" alt="Full application license scrolled with the remote"></td><td><img src="art/screenshots/dream-brick.png" alt="Actual DreamService test activation rendering real fire"></td></tr></table>
@@ -91,6 +107,7 @@ The app uses the Android SDK and JDK without third-party runtime dependencies. S
 
 - [Installation, update, and removal](docs/INSTALLATION.md)
 - [Configuration and host integration](docs/CONFIGURATION.md)
+- [Developer integration contract](docs/INTEGRATION.md)
 - [Building from source](docs/BUILDING.md)
 - [Architecture](docs/ARCHITECTURE.md)
 - [Testing and coverage](docs/TESTING.md)
